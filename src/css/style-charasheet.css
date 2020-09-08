@@ -1,0 +1,170 @@
+@charset "UTF-8";
+
+/* cssのセレクタまとめ 
+    タイプセレクタ   **** {}     ... タイプ（タグ）全て　1点
+    クラスセレクタ   .**** {}    ... ****クラス（class="****"）全て　10点
+    IDセレクタ      #**** {}    ... ****ID（id="****"）全て　100点
+    子孫セレクタ     AAA BBB {}  ... AAA要素内の全てのBBB　上記の加算
+
+    点数が高いスタイルが優先される。
+*/
+
+/*
+    420
+    210-210
+    140-140-140
+    105-105-210
+    270-50-50-50
+    105-105-105-105
+*/
+
+main,
+#base_grid,
+#base_1,
+#base_2,
+#skill_grid,
+#skill_1,
+#skill_2 {
+    display: grid;
+    grid-template-columns: 1fr;
+/*    overflow: hidden;*/
+        white-space: nowrap;
+    grid-gap: 3px;
+}
+
+#base_1 {
+/*    width: 100%;*/
+/*    display: table; */
+}
+
+/*    main { font-size: 4vw; }*/
+
+/* スマホ */
+@media screen and (max-width: 767px) {
+    #base_grid  { grid-template-columns: 1fr; }
+    #base_1     { grid-template-columns: 1fr; }
+    #base_2     { grid-template-columns: 1fr; }
+    #skill_grid { grid-template-columns: 1fr; }
+    #skill_1    { grid-template-columns: 1fr; }
+    #skill_2    { grid-template-columns: 1fr; }
+    .repeat_header_row { visibility:collapse; }
+/*    .width_ctrl_header { border: 0px solid #fff!important; }*/
+}
+
+
+/* iPad 縦向き */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    #base_grid  { grid-template-columns: 1fr;}
+    #base_1     { grid-template-columns: 1fr 2fr 2fr; }
+    #base_2     { grid-template-columns: 1fr 1fr; }
+    #skill_grid { grid-template-columns: 1fr 1fr; }
+    #skill_1    { grid-template-columns: 1fr; }
+    #skill_2    { grid-template-columns: 1fr; }
+}
+
+/* ipad pro横向き, ハーフブラウザ */
+@media screen and (min-width: 1025px) and (max-width: 1979px)  { 
+    #base_grid  { grid-template-columns: 3fr 2fr;}
+    #base_1     { grid-template-columns: 1fr 2fr 2fr; }
+    #base_2     { grid-template-columns: 1fr 1fr; }
+    #skill_grid { grid-template-columns: 1fr 1fr; }
+    #skill_1    { grid-template-columns: 1fr 1fr; }
+    #skill_2    { grid-template-columns: 1fr 1fr; }
+}
+
+/* フルブラウザ */
+@media screen and (min-width: 1980px) { 
+    main        { grid-template-columns: 2fr 2fr; }
+    #base_grid  { grid-template-columns: 3fr 2fr;}
+    #base_1     { grid-template-columns: 1fr 2fr 2fr; }
+    #base_2     { grid-template-columns: 1fr 1fr; }
+    #skill_grid { grid-template-columns: 1fr 1fr; }
+    #skill_1    { grid-template-columns: 1fr 1fr; }
+    #skill_2    { grid-template-columns: 1fr 1fr; }
+}
+    
+    
+.chara_table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-left: 2px;
+    font-size: 1em;
+    
+/*    table-layout: fixed;*/
+}
+
+.chara_table td {
+    border: 1px solid #333333;
+/*    word-break: break-all;*/
+    height: 3ex;
+}
+
+.chara_table th {
+    text-align: left;
+}
+
+/*
+#face_img_area  {
+    margin: 0;
+    height: 27ex;
+    width: 100%;
+}
+*/
+
+.base_item {
+    background-color: aqua;
+    width: 100%;
+}
+#base_table .A { width: 50%; }
+#base_table .B { width: 50%; }
+
+/*
+#face_area::before {
+    content:"";
+    display: block;
+    padding-top: 75%;  高さを幅の75%に固定 
+}
+*/
+
+/*
+#face_area {
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+}
+*/
+#face_area {
+    height: calc( 28px * 8 );
+    align-items: center;
+    justify-content: center;
+    display: inline-block;
+}
+
+#face_img {
+    width: auto;
+    height: 100%;
+    display: block;
+}
+
+#hp_table .A { width: 50%; }
+#hp_table .B { width: 25%; }
+#hp_table .C { width: 25%; }
+
+#status_1 .A { width: 50%; }
+#status_1 .B { width: 16.6%; }
+#status_1 .C { width: 16.6%; }
+#status_1 .D { width: 16.6%; }
+
+#status_2 .A { width: 50%; }
+#status_2 .B { width: 16.6%; }
+#status_2 .C { width: 16.6%; }
+#status_2 .D { width: 16.6%; }
+
+#skill_grid .B,
+#skill_grid .C,
+#skill_grid .D{
+    width: 50px;
+}
+
+
