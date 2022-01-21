@@ -4,6 +4,7 @@ https://httpbin.org/status/500
 
 https://httpbin.org/status/300
 
+https://httpbin.org/delay/2000
 
 import { TextField } from '@material-ui/core'
 import React from 'react';
